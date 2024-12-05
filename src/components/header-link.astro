@@ -1,10 +1,25 @@
 ---
+import type { LucideIcon } from "lucide-react";
+
 type Props = {
 	href: string;
 	text: string;
+	icon?: LucideIcon;
 };
 
-const { href, text } = Astro.props;
+const { href, text, icon: Icon } = Astro.props;
+
+const selected = href === Astro.url.pathname;
 ---
 
-<a href={href}>{text}</a>
+<a
+href={href}
+class:list={[
+    "flex gap-2 items-center py-2 px-4 rounded-xl bg-gray-300/20 border-transparent border-2",
+    "data-[selected=true]:border-accent",
+]}
+data-selected={selected}
+>
+    {Icon && <Icon className="w-4 h-4" />}
+    {text}
+</a>
