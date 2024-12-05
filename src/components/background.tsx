@@ -58,7 +58,7 @@ export const Background = () => {
 			<img
 				src={background.src}
 				alt="background"
-				className="opacity-30 -z-20 blur-md"
+				className="-z-20 blur-2xl opacity-5"
 			/>
 			{/* <canvas ref={canvasRef} width={width} height={height} /> */}
 		</div>
