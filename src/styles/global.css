@@ -44,3 +44,7 @@
 		transform: scaleX(80%);
 	}
 }
+
+#background {
+	/* mask-image: radial-gradient(ellipse at center, transparent 40%, black); */
+}
