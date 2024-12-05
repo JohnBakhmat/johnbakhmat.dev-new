@@ -30,3 +30,17 @@
 		background-position: 100% 100%;
 	}
 }
+
+.bluesky:hover {
+	rotate: -15deg;
+	animation: butterfly-flip 300ms ease-in-out infinite alternate;
+}
+
+@keyframes butterfly-flip {
+	from {
+		transform: scaleX(100%);
+	}
+	to {
+		transform: scaleX(80%);
+	}
+}

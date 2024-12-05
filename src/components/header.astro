@@ -1,6 +1,6 @@
 ---
 import HeaderLink from "./header-link.astro";
-import { CircleHelp, Home, PocketKnife, Rss } from "lucide-react";
+import { CircleHelp, Github, Home, PocketKnife, Rss } from "lucide-react";
 ---
 
 <header class="grid grid-cols-[1fr_auto_1fr] gap-10 px-5 py-2.5 items-center fixed top-0 inset-x-0 backdrop-blur-md">
@@ -9,5 +9,16 @@ import { CircleHelp, Home, PocketKnife, Rss } from "lucide-react";
         <HeaderLink href="/" text="Home" icon={Home} />
         <HeaderLink href="/blog" text="Blog" icon={Rss} />
         <HeaderLink href="/tools" text="Tools" icon={PocketKnife}/>
+    </div>
+
+    <div class="flex shrink gap-5 items-center justify-end">
+
+        <a href="https://bsky.app/profile/johnbakhmat.dev" target="_blank" class="flex items-center gap-2 bluesky">
+            <img src="/bluesky.svg" alt="GitHub" class="w-6 h-6" />
+        </a>
+
+        <a href="https://github.com/johnbakmat" target="_blank" class="flex items-center gap-2">
+            <img src="/github.svg" alt="GitHub" class="w-6 h-6" />
+        </a>
     </div>
 </header>
