@@ -9,7 +9,7 @@ type Props = {
 
 const { href, text, icon: Icon } = Astro.props;
 
-const selected = href === Astro.url.pathname;
+const selected = Astro.url.pathname.endsWith(href);
 ---
 
 <a
