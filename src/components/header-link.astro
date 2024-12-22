@@ -15,11 +15,11 @@ const selected = href === Astro.url.pathname;
 <a
 href={href}
 class:list={[
-    "flex gap-2 items-center py-2 px-4 rounded-xl bg-white/80 border-transparent border-2",
+    "flex gap-2 items-center py-2 px-2 md:px-4 rounded-xl bg-white/80 border-transparent border-2",
     "data-[selected=true]:border-accent",
 ]}
 data-selected={selected}
 >
     {Icon && <Icon className="w-4 h-4" />}
-    {text}
+    <span class="max-md:hidden">{text}</span>
 </a>
