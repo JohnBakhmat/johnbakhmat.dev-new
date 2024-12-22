@@ -12,4 +12,7 @@ import deno from "@deno/astro-adapter";
 export default defineConfig({
 	integrations: [react(), tailwind(), mdx(), sitemap()],
 	adapter: deno(),
+	prefetch: {
+		prefetchAll: true,
+	},
 });
