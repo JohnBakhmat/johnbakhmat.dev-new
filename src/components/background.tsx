@@ -54,11 +54,11 @@ export const Background = () => {
   // useCanvas(canvasRef, (ctx) => draw(ctx, width, height, mousePos));
 
   return (
-    <div className="-z-10 fixed inset-0" id="background">
+    <div className="-z-10 fixed inset-0 h-screen w-screen" id="background">
       <img
         src={background.src}
         alt="background"
-        className="-z-20 opacity-70"
+        className="-z-20 opacity-70 w-full h-full object-cover"
       />
       {/* <canvas ref={canvasRef} width={width} height={height} /> */}
     </div>
