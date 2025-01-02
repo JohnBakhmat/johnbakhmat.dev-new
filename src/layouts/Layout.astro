@@ -1,11 +1,13 @@
 ---
 import Header from "$/components/header.astro";
 import { Background } from "$/components/background";
+import FilmGrain from "$/components/film-grain.astro";
+
 import "$/styles/global.css";
+
 type Props = {
 	withoutMargin?: boolean;
 };
-
 const { withoutMargin } = Astro.props;
 ---
 
@@ -19,6 +21,7 @@ const { withoutMargin } = Astro.props;
 		<title>Astro Basics</title>
 	</head>
 	<body>
+	    <FilmGrain/>
        	<Header/>
 		<main class:list={[
     		"container mx-auto px-5 max-w-3xl",
