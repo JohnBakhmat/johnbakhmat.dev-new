@@ -27,18 +27,29 @@ const draw = (
 
   for (let x = padding; x <= width - padding; x += dotGap) {
     for (let y = headerHeight + padding; y <= height - padding; y += dotGap) {
-      let scale = 0.7;
       const distanceToMouse = Math.sqrt((x - mouseX) ** 2 + (y - mouseY) ** 2);
-      if (distanceToMouse < mouseRadius) {
-        scale = 1.5;
-      }
+      const isClose = distanceToMouse <= mouseRadius;
+      const maxScale = 1.5;
+      const minScale = 0.7;
+      const modifiedScale =
+        ((mouseRadius - distanceToMouse) * maxScale / mouseRadius) +
+        (minScale - 0);
+
+      const scale = isClose ? modifiedScale : minScale;
+      const size = dotSize * scale / 2;
+
+      //offset
+ 
+      const dx = x - mouseX;
+      const dy = y - mouseY;
+
+      const angle = Math.atan2(dy,dx);
+      const offsetX = isClose ? Math.cos(angle) * 0.1 * (mouseRadius - distanceToMouse): 0
+      const offsetY = isClose ? Math.sin(angle) * 0.1 * (mouseRadius - distanceToMouse): 0
 
       ctx.fillStyle = accentColor;
-      // ctx.fillRect(x, y, dotSize * scale, dotSize * scale);
-
       ctx.beginPath();
-      const size = dotSize * scale;
-      ctx.arc(x + size / 2, y + size / 2, size / 2, 0, 2 * Math.PI);
+      ctx.arc(x + offsetX , y + offsetY, size, 0, 2 * Math.PI);
       ctx.fill();
     }
   }
@@ -47,20 +58,22 @@ const draw = (
 };
 
 export const Background = () => {
-  // const canvasRef = useRef<HTMLCanvasElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const [width, height] = useWindowSize();
   const mousePos = useMousePosition();
 
-  // useCanvas(canvasRef, (ctx) => draw(ctx, width, height, mousePos));
+  useCanvas(canvasRef, (ctx) => draw(ctx, width, height, mousePos));
 
   return (
     <div className="-z-10 fixed inset-0 h-screen w-screen" id="background">
-      <img
+      {
+        /* <img
         src={background.src}
         alt="background"
         className="-z-20 opacity-70 md:mt-16 w-full h-full object-cover"
-      />
-      {/* <canvas ref={canvasRef} width={width} height={height} /> */}
+      /> */
+      }
+      <canvas ref={canvasRef} width={width} height={height} />
     </div>
   );
 };
