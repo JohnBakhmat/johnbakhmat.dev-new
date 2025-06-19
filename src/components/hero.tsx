@@ -5,7 +5,16 @@ export const Hero = () => {
       <h1 className="text-5xl md:text-6xl lg:text-7xl">
         Hi, I'm <span className="text-john">John</span>
       </h1>
-      <h2 className="text-xl md:text-2xl lg:text-3xl">I build software (at <a href="https://ap-3.tech">AP-3</a>)</h2>
+      <h2 className="text-xl md:text-2xl lg:text-3xl">
+        I build software (at{" "}
+        <a
+          href="https://ap-3.tech"
+          className="underline text-blue-400 font-mono font-bold"
+        >
+          AP-3
+        </a>
+        )
+      </h2>
     </div>
   );
 };
